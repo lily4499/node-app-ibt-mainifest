@@ -1,4 +1,4 @@
-pp-ibt node {
+node {
     def app
     
     env.IMAGE = 'laly9999/node-app-ibt'
