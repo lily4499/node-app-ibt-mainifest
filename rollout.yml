@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: rollout-container
-          image: laly9999/node-app-ibt:env.BUILD_NUMBER
+          image: laly9999/node-app-ibt:6
           ports:
             - name: http
               containerPort: 3000
