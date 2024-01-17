@@ -1,10 +1,10 @@
-node {
+pp-ibt node {
     def app
     
-    env.IMAGE = 'laly9999/bluegreen-rollout'
+    env.IMAGE = 'laly9999/node-app-ibt'
 
     stage('Clone repository') {
-             git branch: 'main', url: 'https://github.com/lily4499/rollout-manifests.git'  
+             git branch: 'main', url: 'https://github.com/lily4499/node-app-ibt-manifest.git'  
     }
 
     stage('Update GIT') {
@@ -16,11 +16,11 @@ node {
                         sh "git config user.name lily4499"
                         //sh "git switch master"
                         sh "cat rollout.yml"
-                        sh "sed -i 's+${IMAGE}.*+${IMAGE}:${DOCKERTAG}+g' rollout.yml"
+                        sh "sed -i 's+${IMAGE}.*+${IMAGE}:${IMAGETAG}+g' rollout.yml"
                         sh "cat rollout.yml"
                         sh "git add ."
                         sh "git commit -m 'Done by Jenkins Job Rolloutmanifest: ${env.BUILD_NUMBER}'"
-                        sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/rollout-manifests.git HEAD:main"
+                        sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/node-app-ibt-manifest.git HEAD:main"
              }
          }
      }
